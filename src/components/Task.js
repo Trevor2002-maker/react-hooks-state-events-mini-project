@@ -1,15 +1,16 @@
 import React from "react";
 
-function Task(props) {
-  const {TASKS, onDelete} = props;
-
+function Task({text, category,id, onDeleteTask}) {
+function handleDeleteCick(){
+  onDeleteTask(id);
+}
   return (
     <div className="task">
-      <div className="label">{TASKS.category}</div>
+      <div className="label">{category}</div>
       <div className="text">
-       {TASKS.text}
+        {text}
        </div>
-      <button className="delete" onClick={()=>onDelete(TASKS.id)}>X</button>
+       <button onClick={handleDeleteCick}>X</button>
     </div>
   );
 }
